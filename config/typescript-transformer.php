@@ -27,6 +27,7 @@ return [
      */
 
     'transformers' => [
+        Spatie\LaravelTypeScriptTransformer\Transformers\EloquentModelTransformer::class,
         Spatie\LaravelTypeScriptTransformer\Transformers\SpatieStateTransformer::class,
         Spatie\TypeScriptTransformer\Transformers\EnumTransformer::class,
         // Spatie\TypeScriptTransformer\Transformers\SpatieEnumTransformer::class,
