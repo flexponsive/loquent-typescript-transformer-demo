@@ -11,7 +11,8 @@ class BusinessFunction extends Model
 {
     use HasFactory;
 
-    public function orgUnits(): BelongsToMany {
-        return $this->belongsToMany(OrgUnit::class)->withTimestamps();
+    public function orgUnits(): BelongsToMany
+    {
+        return $this->belongsToMany(OrgUnit::class)->withTimestamps()->as("contribution")->using(BusinessFunctionOrgUnit::class);
     }
 }

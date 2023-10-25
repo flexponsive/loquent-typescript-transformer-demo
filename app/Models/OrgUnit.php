@@ -18,6 +18,6 @@ class OrgUnit extends Model
     }
 
     public function businessFunctions(): BelongsToMany {
-        return $this->belongsToMany(BusinessFunction::class)->withTimestamps();
+        return $this->belongsToMany(BusinessFunction::class)->withTimestamps()->using(BusinessFunctionOrgUnit::class);
     }
 }
