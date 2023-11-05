@@ -11,7 +11,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\AsStringable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /** @typescript */
 class User extends Authenticatable
@@ -62,9 +64,9 @@ class User extends Authenticatable
         'last_login_ts' => 'timestamp',
     ];
 
-    public function orgUnit(): HasOne
+    public function orgUnit(): BelongsTo
     {
-        return $this->hasOne(OrgUnit::class);
+        return $this->belongsTo(OrgUnit::class);
     }
 
     protected function reverseEmail(): Attribute
@@ -73,4 +75,5 @@ class User extends Authenticatable
             get: fn (mixed $value, array $attributes) => strrev($attributes['email']),
         );
     }
+
 }

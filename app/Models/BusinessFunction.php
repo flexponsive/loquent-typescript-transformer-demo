@@ -15,4 +15,5 @@ class BusinessFunction extends Model
     {
         return $this->belongsToMany(OrgUnit::class)->withTimestamps()->as("contribution")->using(BusinessFunctionOrgUnit::class);
     }
+
 }
